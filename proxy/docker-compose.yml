@@ -1,0 +1,18 @@
+version: '2'
+services:
+  proxy:
+    build: ./
+    networks:
+      - microservice1
+      - microservice2
+    ports:
+      - 80:80
+      - 443:443
+
+networks:
+  microservice1:
+    external:
+      name: microservice1_default
+  microservice2:
+    external:
+      name: microservice2_default
